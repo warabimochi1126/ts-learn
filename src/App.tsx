@@ -41,13 +41,13 @@ let userA: USER = {
   age: 30,
   city: "Tokyo",
   username: "xxx",
-  password: "yyy"
-}
+  password: "yyy",
+};
 
 // Union Types
 let value: boolean | number;
 value = true;
-value =  10;
+value = 10;
 
 let arrayUni: (number | string)[];
 arrayUni = [0, 1, 2, "hello"];
@@ -60,7 +60,7 @@ let memory: 256 | 512;
 memory = 512;
 
 // typeof
-let msg: string = "Hi";  
+let msg: string = "Hi";
 let msg2: typeof msg;
 msg2 = "hello";
 
@@ -71,7 +71,7 @@ let newAnimal: typeof animal = { cat: "big cat" };
 type KEYS = {
   primary: string;
   secondary: string;
-}
+};
 
 let key: keyof KEYS;
 key = "primary";
@@ -79,7 +79,7 @@ key = "primary";
 // typeof + keyof
 const SPORTS = {
   soccer: "Soccer",
-  baseball: "Baseball"
+  baseball: "Baseball",
 };
 
 let keySports: keyof typeof SPORTS;
@@ -89,7 +89,7 @@ keySports = "soccer";
 enum OS {
   Windows,
   Mac,
-  Linux
+  Linux,
 }
 
 interface PC {
@@ -99,16 +99,28 @@ interface PC {
 
 const PC1: PC = {
   id: 0,
-  OSType: OS.Windows
-}
+  OSType: OS.Windows,
+};
 
 const PC2: PC = {
   id: 1,
-  OSType: OS.Mac
-}
+  OSType: OS.Mac,
+};
 
+// 型の互換性
+const comp1 = "test";
+let comp2: string = comp1;
 
+let comp3: string = "test";
+let comp4: "test" = comp3;
 
+let funcComp1 = (x: number) => {};
+let funcComp2 = (x: string) => {};
+
+funcComp1 = funcComp2;
+funcComp2 = funcComp1;
+
+// Generics ジェネリクス
 
 function App() {
   return (
